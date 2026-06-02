@@ -48,8 +48,9 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.25; font-weight: 700; }
 }
 .profile-name { font-size: 1.6rem; margin-bottom: 4px; }
 .profile-title { color: var(--text); font-weight: 600; font-size: .98rem; }
-.profile-affil { color: var(--muted); font-size: .9rem; margin-bottom: 18px; }
+.profile-affil { color: var(--muted); font-size: .9rem; margin-bottom: 10px; }
 .profile-affil a { color: var(--muted); }
+.profile-tagline { color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: .03em; margin-bottom: 18px; }
 
 .links { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 24px; }
 .links a {
