@@ -1,0 +1,133 @@
+/* ===== Sungho Lee — academic homepage styles ===== */
+:root {
+  --bg:       #ffffff;
+  --bg-soft:  #f6f8fb;
+  --text:     #1f2733;
+  --muted:    #5b6675;
+  --border:   #e4e8ee;
+  --accent:   #2457d6;   /* scholarly blue */
+  --accent-dk:#1b3fa0;
+  --radius:   14px;
+  --maxw:     1120px;
+  --serif:    Georgia, "Times New Roman", serif;
+  --sans:     "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-dk); text-decoration: underline; }
+h1, h2, h3 { font-family: var(--serif); line-height: 1.25; font-weight: 700; }
+
+/* ---------- Layout: sticky sidebar + content ---------- */
+.layout {
+  max-width: var(--maxw); margin: 0 auto;
+  display: grid; grid-template-columns: 290px 1fr; gap: 56px;
+  padding: 56px 28px 80px;
+}
+.sidebar { position: sticky; top: 40px; align-self: start; text-align: center; }
+@media (max-width: 880px) {
+  .layout { grid-template-columns: 1fr; gap: 36px; padding: 36px 22px 60px; }
+  .sidebar { position: static; }
+}
+
+/* ---------- Profile card ---------- */
+.avatar {
+  width: 180px; height: 180px; border-radius: 50%; margin: 0 auto 20px;
+  object-fit: cover; border: 4px solid var(--bg); box-shadow: 0 6px 24px rgba(16,24,40,.12);
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--accent), #4f7ce8); color: #fff;
+  font-family: var(--serif); font-size: 3.4rem; font-weight: 700; letter-spacing: .02em;
+}
+.profile-name { font-size: 1.6rem; margin-bottom: 4px; }
+.profile-title { color: var(--text); font-weight: 600; font-size: .98rem; }
+.profile-affil { color: var(--muted); font-size: .9rem; margin-bottom: 18px; }
+.profile-affil a { color: var(--muted); }
+
+.links { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 24px; }
+.links a {
+  font-size: .82rem; color: var(--text); border: 1px solid var(--border);
+  padding: 6px 12px; border-radius: 999px; background: var(--bg-soft); text-decoration: none;
+}
+.links a:hover { border-color: var(--accent); color: var(--accent); }
+
+.sidenav { border-top: 1px solid var(--border); padding-top: 18px; }
+.sidenav a {
+  display: block; color: var(--muted); font-size: .92rem; padding: 6px 0;
+  text-decoration: none; letter-spacing: .02em;
+}
+.sidenav a:hover { color: var(--accent); }
+@media (max-width: 880px) { .sidenav { display: none; } }
+
+/* ---------- Content ---------- */
+.content { min-width: 0; }
+.section { margin-bottom: 48px; }
+.section h2 {
+  font-size: 1.5rem; color: var(--text); margin-bottom: 18px;
+  padding-bottom: 8px; border-bottom: 2px solid var(--border);
+}
+.section h2 .tag { font-family: var(--sans); font-size: .7rem; color: var(--accent);
+  font-weight: 700; letter-spacing: .12em; text-transform: uppercase; vertical-align: middle; margin-left: 10px; }
+.section p { margin-bottom: 14px; }
+.section p:last-child { margin-bottom: 0; }
+
+.lead { color: var(--muted); }
+
+ul.clean { list-style: none; }
+ul.clean li { position: relative; padding-left: 20px; margin-bottom: 8px; }
+ul.clean li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+ul.clean li b { color: var(--text); }
+
+/* timeline (education / appointments) */
+.entry { margin-bottom: 16px; }
+.entry .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.entry .role { font-weight: 700; }
+.entry .date { color: var(--muted); font-size: .88rem; white-space: nowrap; }
+.entry .org { color: var(--muted); font-size: .94rem; }
+.entry .org a { color: var(--muted); }
+.entry .meta { color: var(--muted); font-size: .9rem; font-style: italic; }
+
+/* publication / talk lists */
+ol.pubs, ol.talks { list-style: none; counter-reset: item; }
+ol.pubs > li, ol.talks > li {
+  position: relative; padding-left: 38px; margin-bottom: 16px; font-size: .95rem;
+}
+ol.pubs > li::before, ol.talks > li::before {
+  counter-increment: item; content: "[" counter(item) "]";
+  position: absolute; left: 0; top: 0; color: var(--accent); font-size: .82rem; font-weight: 700;
+}
+.pubs .me, .talks .me { font-weight: 700; color: var(--text); }
+.pubs .jt { font-style: italic; }
+.pubs .topic { display: block; color: var(--muted); font-size: .84rem; margin-top: 2px; }
+
+.note { color: var(--muted); font-size: .9rem; }
+
+/* media (videos / figures) */
+.media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 24px; }
+@media (max-width: 700px) { .media-grid { grid-template-columns: 1fr; } }
+figure.media { margin: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #0b1020; }
+figure.media video, figure.media img { width: 100%; display: block; }
+figure.media figcaption { padding: 11px 14px; color: var(--muted); font-size: .85rem; background: var(--bg); }
+
+/* CV page specifics */
+.cv-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+.btn {
+  display: inline-block; font-size: .88rem; font-weight: 600; padding: 9px 16px;
+  border-radius: 10px; text-decoration: none; border: 1px solid var(--border);
+}
+.btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-primary:hover { background: var(--accent-dk); color: #fff; text-decoration: none; }
+.btn-ghost { background: var(--bg-soft); color: var(--text); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+footer {
+  border-top: 1px solid var(--border); padding: 28px;
+  text-align: center; color: var(--muted); font-size: .85rem;
+}
