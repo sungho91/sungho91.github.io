@@ -110,6 +110,12 @@ ol.pubs > li::before, ol.talks > li::before {
 
 .note { color: var(--muted); font-size: .9rem; }
 
+/* news */
+ul.news { list-style: none; }
+ul.news li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+ul.news li:last-child { border-bottom: none; }
+ul.news .date { display: inline-block; color: var(--accent); font-weight: 700; font-size: .82rem; margin-right: 10px; }
+
 /* media (videos / figures) — one per row so they're large */
 .media-grid { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 24px; }
 figure.media { margin: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--bg); }
