@@ -109,12 +109,11 @@ ol.pubs > li::before, ol.talks > li::before {
 
 .note { color: var(--muted); font-size: .9rem; }
 
-/* media (videos / figures) */
-.media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 24px; }
-@media (max-width: 700px) { .media-grid { grid-template-columns: 1fr; } }
-figure.media { margin: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #0b1020; }
+/* media (videos / figures) — one per row so they're large */
+.media-grid { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 24px; }
+figure.media { margin: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--bg); }
 figure.media video, figure.media img { width: 100%; display: block; }
-figure.media figcaption { padding: 11px 14px; color: var(--muted); font-size: .85rem; background: var(--bg); }
+figure.media figcaption { padding: 12px 16px; color: var(--muted); font-size: .88rem; background: var(--bg); }
 
 /* CV page specifics */
 .cv-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
